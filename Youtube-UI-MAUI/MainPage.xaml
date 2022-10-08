@@ -1,0 +1,550 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:Youtube_UI_MAUI"
+             x:DataType="app:MainPage"
+             x:Class="Youtube_UI_MAUI.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MyLightGray">#eeeeee</Color>
+            <Style x:Key="Stats" TargetType="Label">
+                <Setter Property="FontSize" Value="11"/>
+                <Setter Property="Padding" Value="5"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <Grid RowDefinitions="Auto, Auto, *">
+            <Grid Grid.Row="0"
+                ColumnDefinitions="Auto, *"
+                  HeightRequest="40"
+                  Padding="10">
+                <HorizontalStackLayout Grid.Column="0"
+                                       Spacing="10">
+                    <Image Source="youtube_logo.svg"
+                           Aspect="AspectFill"
+                           HeightRequest="20"
+                           WidthRequest="20"/>
+                    <Label Text="YouTube"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Grid.Column="1" 
+                                       HorizontalOptions="End"
+                                       Spacing="10">
+
+                    <ImageButton Source="notification_bell.svg"
+                                 HeightRequest="20"
+                                 WidthRequest="20"/>
+
+                    <ImageButton Source="search.svg"
+                                 HeightRequest="20"
+                                 WidthRequest="20"/>
+
+                    <ImageButton Source="user.svg"
+                                 HeightRequest="20"
+                                 WidthRequest="20"/>
+
+                </HorizontalStackLayout>
+            </Grid>
+
+            <Border Grid.Row="1"
+                    Stroke="LightGrey"
+                    StrokeShape="Rectangle"
+                    StrokeThickness="1"
+                    Margin="-2">
+                <ScrollView Orientation="Horizontal"
+                            Padding="10">
+                    <HorizontalStackLayout VerticalOptions="Center">
+                        <HorizontalStackLayout Spacing="5"
+                                           BackgroundColor="{StaticResource MyLightGray}"
+                                           Padding="5">
+                            <Image Source="explore.svg"
+                               Aspect="AspectFill"
+                               HeightRequest="20"
+                               WidthRequest="20"/>
+
+                            <Label Text="Explore" />
+
+                        </HorizontalStackLayout>
+                        <Label Text="|"
+                               TextColor="LightGray"
+                               FontSize="20"
+                               Margin="5,0,0,0"/>
+
+                        <CollectionView ItemsSource="{Binding Tags}">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="app:Tag">
+                                    <Border Stroke="LightGray"
+                                            StrokeThickness="1"
+                                            StrokeShape="RoundRectangle 20"
+                                            Margin="5,0,0,0"
+                                            BackgroundColor="{StaticResource MyLightGray}">
+                                        <Label Text="{Binding Name}"
+                                               Padding="8,5"/>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <Button Text="SEND FEEDBACK"
+                                BorderColor="Transparent"
+                                BackgroundColor="Transparent"
+                                TextColor="Blue"
+                                VerticalOptions="Center"
+                                Padding="0"
+                                Margin="5,0,0,0"/>
+
+                    </HorizontalStackLayout>
+                </ScrollView>
+            </Border>
+
+            <VerticalStackLayout Grid.Row="2"
+                                 BackgroundColor="LightGray"
+                                 Spacing="10">
+              
+                <VerticalStackLayout BackgroundColor="White">
+                    <Grid RowDefinitions="*,Auto">
+                        <Image Source="animal.jpg"
+                               Aspect="AspectFill"
+                               WidthRequest="400"
+                               HeightRequest="250"/>
+                        <Label Text="6:18"
+                               FontSize="16"
+                               TextColor="Red"
+                               FontAttributes="Bold"
+                               HorizontalOptions="End"
+                               VerticalOptions="End"
+                               Margin="5"/>
+                    </Grid>
+                    <HorizontalStackLayout Spacing="5"
+                                           Padding="5"
+                                           Background="{StaticResource MyLightGray}">
+                        <Label Text="Abhay Prince"
+                               FontAttributes="Bold"
+                               FontSize="11"/>
+                        <Label Text="viewers also watched this channel"
+                               FontSize="11"/>
+                    </HorizontalStackLayout>
+
+                    <Grid RowDefinitions="Auto, Auto"
+                          ColumnDefinitions="Auto, *, Auto">
+                        <Border Grid.Column="0"
+                                Grid.RowSpan="2"
+                                StrokeShape="RoundRectangle 30"
+                                StrokeThickness="0"
+                                HeightRequest="30"
+                                VerticalOptions="Start"
+                                Margin="0,5,0,0">
+                            <Image Source="animal.jpg"
+                                   Aspect="AspectFill"
+                                   HeightRequest="30"
+                                   WidthRequest="30"/>
+                        </Border>
+
+                        <Label Grid.Column="1"
+                               Grid.Row="0"
+                                Text="Scientists Just Detected A Massive Object That Arrived From Another Galaxy"
+                                LineBreakMode="WordWrap"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               Margin="10,5,0,0"/>
+
+                        <ImageButton Grid.Row="0"
+                                     Grid.Column="2"
+                                     Source="vertical_menu.svg"
+                                     HeightRequest="15"
+                                     WidthRequest="10"
+                                     VerticalOptions="Start"
+                                     Margin="0,5,5,0"/>
+
+                        <HorizontalStackLayout Grid.Row="1"
+                                               Grid.Column="1">
+                            <Label Text="Abhay Prince"
+                                   Style="{StaticResource Stats}"/>
+                            <Label Text="29K Views"
+                                   Style="{StaticResource Stats}"/>
+                            <Label Text="5 days ago"
+                                   Style="{StaticResource Stats}"/>
+                        </HorizontalStackLayout>
+
+                    </Grid>
+                    
+                    
+                    
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="10"
+                                     Padding="10,5,0,5"
+                                    BackgroundColor="White">
+                    <HorizontalStackLayout Spacing="5">
+                        <Image Source="shorts.png" 
+                               HeightRequest="20"
+                               WidthRequest="20"/>
+
+                        <Label Text="Shorts"
+                               FontAttributes="Bold"
+                               FontSize="15"/>
+
+                    </HorizontalStackLayout>
+
+                    <CollectionView ItemsSource="{Binding Shorts}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="app:ShortModel">
+                                <Grid Margin="0,0,10,0">
+                                    <Image Source="{Binding Image}"
+                                           Aspect="AspectFill"
+                                           HeightRequest="250"
+                                           WidthRequest="150"
+                                           Opacity="0.8"/>
+
+                                    <ImageButton Source="vertical_menu.svg"
+                                                 HorizontalOptions="End"
+                                                 VerticalOptions="Start"
+                                                 HeightRequest="10"
+                                                 WidthRequest="10"
+                                                 Margin="5"/>
+
+                                    <VerticalStackLayout Spacing="5"
+                                                         VerticalOptions="End"
+                                                         WidthRequest="150"
+                                                         Padding="5">
+                                        <Label Text="{Binding Title}"
+                                           FontAttributes="Bold"
+                                           TextColor="White"
+                                           FontSize="13"
+                                           LineBreakMode="WordWrap" />
+
+                                        <Label Text="{Binding ViewsDisplay}"
+                                           FontAttributes="Bold"
+                                           TextColor="White"
+                                           FontSize="13"/>
+                                    </VerticalStackLayout>
+                                    
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    
+                </VerticalStackLayout>
+
+                <VerticalStackLayout  BackgroundColor="White">
+                    <Grid RowDefinitions="*,Auto">
+                        <Image Source="image3.jpg"
+                               Aspect="AspectFill"
+                               WidthRequest="400"
+                               HeightRequest="250"/>
+                        <Label Text="1:00"
+                               FontSize="16"
+                               TextColor="Red"
+                               FontAttributes="Bold"
+                               HorizontalOptions="End"
+                               VerticalOptions="End"
+                               Margin="5"/>
+                    </Grid>
+                    
+                    <Grid RowDefinitions="Auto, Auto"
+                          ColumnDefinitions="Auto, *, Auto">
+                        <Border Grid.Column="0"
+                                Grid.RowSpan="2"
+                                StrokeShape="RoundRectangle 30"
+                                StrokeThickness="0"
+                                HeightRequest="30"
+                                VerticalOptions="Start"
+                                Margin="0,5,0,0">
+                            <Image Source="image3.jpg"
+                                   Aspect="AspectFill"
+                                   HeightRequest="30"
+                                   WidthRequest="30"/>
+                        </Border>
+
+                        <Label Grid.Column="1"
+                               Grid.Row="0"
+                                Text="Scientists Just Detected A Massive Object That Arrived From Another Galaxy"
+                                LineBreakMode="WordWrap"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               Margin="10,5,0,0"/>
+
+                        <ImageButton Grid.Row="0"
+                                     Grid.Column="2"
+                                     Source="vertical_menu.svg"
+                                     HeightRequest="15"
+                                     WidthRequest="10"
+                                     VerticalOptions="Start"
+                                     Margin="0,5,5,0"/>
+
+                        <HorizontalStackLayout Grid.Row="1"
+                                               Grid.Column="1">
+                            <Label Text="Abhay Prince"
+                                   Style="{StaticResource Stats}"/>
+                            <Label Text="29K Views"
+                                   Style="{StaticResource Stats}"/>
+                            <Label Text="5 days ago"
+                                   Style="{StaticResource Stats}"/>
+                        </HorizontalStackLayout>
+
+                    </Grid>
+
+
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout  BackgroundColor="White">
+                    <Grid RowDefinitions="*,Auto">
+                        <Image Source="image5.jpg"
+                               Aspect="AspectFill"
+                               WidthRequest="400"
+                               HeightRequest="250"/>
+                        <Label Text="1:00"
+                               FontSize="16"
+                               TextColor="Red"
+                               FontAttributes="Bold"
+                               HorizontalOptions="End"
+                               VerticalOptions="End"
+                               Margin="5"/>
+                    </Grid>
+
+                    <Grid RowDefinitions="Auto, Auto"
+                          ColumnDefinitions="Auto, *, Auto">
+                        <Border Grid.Column="0"
+                                Grid.RowSpan="2"
+                                StrokeShape="RoundRectangle 30"
+                                StrokeThickness="0"
+                                HeightRequest="30"
+                                VerticalOptions="Start"
+                                Margin="0,5,0,0">
+                            <Image Source="image5.jpg"
+                                   Aspect="AspectFill"
+                                   HeightRequest="30"
+                                   WidthRequest="30"/>
+                        </Border>
+
+                        <Label Grid.Column="1"
+                               Grid.Row="0"
+                                Text="Scientists Just Detected A Massive Object That Arrived From Another Galaxy"
+                                LineBreakMode="WordWrap"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               Margin="10,5,0,0"/>
+
+                        <ImageButton Grid.Row="0"
+                                     Grid.Column="2"
+                                     Source="vertical_menu.svg"
+                                     HeightRequest="15"
+                                     WidthRequest="10"
+                                     VerticalOptions="Start"
+                                     Margin="0,5,5,0"/>
+
+                        <HorizontalStackLayout Grid.Row="1"
+                                               Grid.Column="1">
+                            <Label Text="Abhay Prince"
+                                   Style="{StaticResource Stats}"/>
+                            <Label Text="29K Views"
+                                   Style="{StaticResource Stats}"/>
+                            <Label Text="5 days ago"
+                                   Style="{StaticResource Stats}"/>
+                        </HorizontalStackLayout>
+
+                    </Grid>
+
+
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout  BackgroundColor="White">
+                    <Grid RowDefinitions="*,Auto">
+                        <Image Source="image1.jpg"
+                               Aspect="AspectFill"
+                               WidthRequest="400"
+                               HeightRequest="250"/>
+                        <Label Text="1:00"
+                               FontSize="16"
+                               TextColor="Red"
+                               FontAttributes="Bold"
+                               HorizontalOptions="End"
+                               VerticalOptions="End"
+                               Margin="5"/>
+                    </Grid>
+
+                    <Grid RowDefinitions="Auto, Auto"
+                          ColumnDefinitions="Auto, *, Auto">
+                        <Border Grid.Column="0"
+                                Grid.RowSpan="2"
+                                StrokeShape="RoundRectangle 30"
+                                StrokeThickness="0"
+                                HeightRequest="30"
+                                VerticalOptions="Start"
+                                Margin="0,5,0,0">
+                            <Image Source="image1.jpg"
+                                   Aspect="AspectFill"
+                                   HeightRequest="30"
+                                   WidthRequest="30"/>
+                        </Border>
+
+                        <Label Grid.Column="1"
+                               Grid.Row="0"
+                                Text="Scientists Just Detected A Massive Object That Arrived From Another Galaxy"
+                                LineBreakMode="WordWrap"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               Margin="10,5,0,0"/>
+
+                        <ImageButton Grid.Row="0"
+                                     Grid.Column="2"
+                                     Source="vertical_menu.svg"
+                                     HeightRequest="15"
+                                     WidthRequest="10"
+                                     VerticalOptions="Start"
+                                     Margin="0,5,5,0"/>
+
+                        <HorizontalStackLayout Grid.Row="1"
+                                               Grid.Column="1">
+                            <Label Text="Abhay Prince"
+                                   Style="{StaticResource Stats}"/>
+                            <Label Text="29K Views"
+                                   Style="{StaticResource Stats}"/>
+                            <Label Text="5 days ago"
+                                   Style="{StaticResource Stats}"/>
+                        </HorizontalStackLayout>
+
+                    </Grid>
+
+
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="10"
+                                     Padding="10,5,0,5"
+                                    BackgroundColor="White">
+                    <HorizontalStackLayout Spacing="5">
+                        <Image Source="shorts.png" 
+                               HeightRequest="20"
+                               WidthRequest="20"/>
+
+                        <Label Text="Shorts"
+                               FontAttributes="Bold"
+                               FontSize="15"/>
+
+                    </HorizontalStackLayout>
+
+                    <CollectionView ItemsSource="{Binding RandomShorts}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="app:ShortModel">
+                                <Grid Margin="0,0,10,0">
+                                    <Image Source="{Binding Image}"
+                                           Aspect="AspectFill"
+                                           HeightRequest="250"
+                                           WidthRequest="150"
+                                           Opacity="0.8"/>
+
+                                    <ImageButton Source="vertical_menu.svg"
+                                                 HorizontalOptions="End"
+                                                 VerticalOptions="Start"
+                                                 HeightRequest="10"
+                                                 WidthRequest="10"
+                                                 Margin="5"/>
+
+                                    <VerticalStackLayout Spacing="5"
+                                                         VerticalOptions="End"
+                                                         WidthRequest="150"
+                                                         Padding="5">
+                                        <Label Text="{Binding Title}"
+                                           FontAttributes="Bold"
+                                           TextColor="White"
+                                           FontSize="13"
+                                           LineBreakMode="WordWrap" />
+
+                                        <Label Text="{Binding ViewsDisplay}"
+                                           FontAttributes="Bold"
+                                           TextColor="White"
+                                           FontSize="13"/>
+                                    </VerticalStackLayout>
+
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </VerticalStackLayout>
+
+
+                <VerticalStackLayout  BackgroundColor="White">
+                    <Grid RowDefinitions="*,Auto">
+                        <Image Source="image2.jpg"
+                               Aspect="AspectFill"
+                               WidthRequest="400"
+                               HeightRequest="250"/>
+                        <Label Text="1:00"
+                               FontSize="16"
+                               TextColor="Red"
+                               FontAttributes="Bold"
+                               HorizontalOptions="End"
+                               VerticalOptions="End"
+                               Margin="5"/>
+                    </Grid>
+
+                    <Grid RowDefinitions="Auto, Auto"
+                          ColumnDefinitions="Auto, *, Auto">
+                        <Border Grid.Column="0"
+                                Grid.RowSpan="2"
+                                StrokeShape="RoundRectangle 30"
+                                StrokeThickness="0"
+                                HeightRequest="30"
+                                VerticalOptions="Start"
+                                Margin="0,5,0,0">
+                            <Image Source="image2.jpg"
+                                   Aspect="AspectFill"
+                                   HeightRequest="30"
+                                   WidthRequest="30"/>
+                        </Border>
+
+                        <Label Grid.Column="1"
+                               Grid.Row="0"
+                                Text="Scientists Just Detected A Massive Object That Arrived From Another Galaxy"
+                                LineBreakMode="WordWrap"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               Margin="10,5,0,0"/>
+
+                        <ImageButton Grid.Row="0"
+                                     Grid.Column="2"
+                                     Source="vertical_menu.svg"
+                                     HeightRequest="15"
+                                     WidthRequest="10"
+                                     VerticalOptions="Start"
+                                     Margin="0,5,5,0"/>
+
+                        <HorizontalStackLayout Grid.Row="1"
+                                               Grid.Column="1">
+                            <Label Text="Abhay Prince"
+                                   Style="{StaticResource Stats}"/>
+                            <Label Text="29K Views"
+                                   Style="{StaticResource Stats}"/>
+                            <Label Text="5 days ago"
+                                   Style="{StaticResource Stats}"/>
+                        </HorizontalStackLayout>
+
+                    </Grid>
+
+
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
